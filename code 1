@@ -1,0 +1,54 @@
+#include <iostream>
+#include <cmath> // For M_PI constant
+
+using namespace std;
+
+class Circle {
+private:
+    float radius;
+    static const float PI; // Static constant for PI
+
+public:
+    static int count; // Static member to count the number of Circle objects
+
+    // Default constructor
+    Circle() : radius(0) {
+        cout << "Default constructor called. Total circles: " << ++count << endl;
+    }
+
+    // Parameterized constructor
+    Circle(float r) : radius(r) {
+        cout << "Parameterized constructor called with radius " << r 
+             << ". Total circles: " << ++count << endl;
+    }
+
+    // Member function to calculate the area
+    float getArea() const {
+        return PI * radius * radius;
+    }
+
+    // Member function to calculate the circumference
+    float getCircumference() const {
+        return 2 * PI * radius;
+    }
+};
+
+// Initialize static data members
+const float Circle::PI = 3.14159f; // PI value
+int Circle::count = 0; // Initialize count
+
+int main() {
+    // Create two Circle objects
+    Circle obj1; // Default constructor
+    Circle obj2(5.0f); // Parameterized constructor with radius 5.0
+
+    // Output the area and circumference for obj1
+    cout << "Circle 1 - Radius: " << obj1.getArea() << ", Area: " << obj1.getArea()
+         << ", Circumference: " << obj1.getCircumference() << endl;
+
+    // Output the area and circumference for obj2
+    cout << "Circle 2 - Radius: " << obj2.getArea() << ", Area: " << obj2.getArea()
+         << ", Circumference: " << obj2.getCircumference() << endl;
+
+    return 0;
+}
