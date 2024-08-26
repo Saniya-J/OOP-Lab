@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+class Calc {
+private:
+    // Data members to store the two numbers
+    double num1, num2;
+
+public:
+    // Member function to set the values of num1 and num2
+    void setNum(double a, double b) {
+        num1 = a;
+        num2 = b;
+    }
+
+    // Member function to get the sum of num1 and num2
+    double getSum() const {
+        return num1 + num2;
+    }
+
+    // Member function to get the difference between num1 and num2
+    double getDifference() const {
+        return num1 - num2;
+    }
+};
+
+int main() {
+    Calc calc;          // Create an instance of the Calc class
+    double number1, number2;
+
+    // Input the numbers
+    cout << "Enter the first number: ";
+    cin >> number1;
+    cout << "Enter the second number: ";
+    cin >> number2;
+
+    // Set the numbers in the Calc object
+    calc.setNum(number1, number2);
+
+    // Display the results
+    cout << "Sum: " << calc.getSum() << endl;
+    cout << "Difference: " << calc.getDifference() << endl;
+
+    return 0;
+}
