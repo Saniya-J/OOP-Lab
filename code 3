@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+private:
+    int length;
+    int width;
+
+public:
+    // Default constructor
+    Rectangle() : length(0), width(0) {}
+
+    // Constructor for square (when only one parameter is provided)
+    Rectangle(int l) : length(l), width(l) {}
+
+    // Constructor for rectangle (when two parameters are provided)
+    Rectangle(int l, int w) : length(l), width(w) {}
+
+    // Function to calculate and return the area of the square
+    int getSqArea() const {
+        if (length == width) {
+            return length * width;
+        } else {
+            cout << "Not a square!" << endl;
+            return -1; // Indicate that it's not a square
+        }
+    }
+
+    // Function to calculate and return the area of the rectangle
+    int getRectArea() const {
+        return length * width;
+    }
+};
+
+int main() {
+    // Create a Rectangle object as a square
+    Rectangle square(5);
+    cout << "Square area: " << square.getSqArea() << endl;
+
+    // Create a Rectangle object as a rectangle
+    Rectangle rect(5, 10);
+    cout << "Rectangle area: " << rect.getRectArea() << endl;
+
+    // Trying to get the square area of a rectangle
+    cout << "Square area of rectangle: " << rect.getSqArea() << endl;
+
+    return 0;
+}
